@@ -1,16 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import List from './List';
 import AddItem from './AddItem';
 import base from './base';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+class App extends Component {
+  state = {
       list: [],
       loading: true
     };
-  }
+
 
   componentDidMount() {
     this.ref = base.syncState('to-do-react', {

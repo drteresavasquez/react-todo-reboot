@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-class AddItem extends React.Component{
+class AddItem extends Component{
   
   handleSubmit = (e) => {
     if(e.keyCode === 13){
@@ -9,7 +9,7 @@ class AddItem extends React.Component{
       ReactDOM.findDOMNode(this.refs.newItem).value = '';
     }
   }
-  
+
   render(){
     return (
       <div className="col-sm-12 text-center">
