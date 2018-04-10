@@ -2,9 +2,9 @@ import Rebase from 're-base'
 import firebase from 'firebase'
 
 const config = {
-    apiKey: "REALLYLONGNUMBER",
-    authDomain: "your-database.firebaseapp.com",
-    databaseURL: "https://d18-demo.your-database.com"
+    apiKey: "AIzaSyC5nGlpdSUO1DihOK5fQI855YIQpZzP_xk",
+    authDomain: "exercisedb-20924.firebaseapp.com",
+    databaseURL: "https://exercisedb-20924.firebaseio.com"
 }
 
 const app = firebase.initializeApp(config)

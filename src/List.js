@@ -28,7 +28,7 @@ class List extends React.Component{
           <button
             className="glyphicon glyphicon-remove"
             style={styles.removeItem}
-            onClick={this.props.remove.bind(null, index)}
+            onClick={this.props.remove}
           />
           <span style={styles.todoItem}>
             {item}
@@ -36,6 +36,8 @@ class List extends React.Component{
         </li>
       )
     });
+
+
     return (
       <div className="col-sm-12">
         <ul className="list-group">

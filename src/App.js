@@ -13,7 +13,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.ref = base.syncState('items', {
+    this.ref = base.syncState('to-do-react', {
       context: this,
       state: 'list',
       asArray: true,
@@ -23,19 +23,19 @@ class App extends React.Component {
     });
   }
 
-  componentWillUpdate(nextProps, nextState){
-    //automatically passes in nextprops and nextState
-    console.log("something changed");
-    console.log("nextProps:", nextProps, "nextState", nextState);
-    //example use: set props in local storage
-  }
+  // componentWillUpdate(nextProps, nextState){
+  //   //automatically passes in nextprops and nextState
+  //   console.log("something changed");
+  //   console.log("nextProps:", nextProps, "nextState", nextState);
+  //   //example use: set props in local storage
+  // }
 
-  handleAddItem(newItem) {
+  handleAddItem = (newItem) => {
     this.setState({
       list: this.state.list.concat([newItem])
     });
   }
-  handleRemoveItem(index) {
+  handleRemoveItem = (index) => {
     //the react way: Make a copy of state, modify, and then set new state
     var newList = this.state.list;
     newList.splice(index, 1);
@@ -53,12 +53,12 @@ class App extends React.Component {
           <div className="col-sm-6 col-md-offset-3">
             <div className="col-sm-12">
               <h3 className="text-center"> My Todo List </h3>
-              <AddItem add={this.handleAddItem.bind(this)} />
+              <AddItem add={this.handleAddItem} />
               {this.state.loading === true
                 ? <h3> LOADING... </h3>
                 : <List
                     items={this.state.list}
-                    remove={this.handleRemoveItem.bind(this)}
+                    remove={this.handleRemoveItem}
                   />}
             </div>
           </div>

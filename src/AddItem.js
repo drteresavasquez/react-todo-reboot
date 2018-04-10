@@ -2,12 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class AddItem extends React.Component{
-  handleSubmit(e){
+  
+  handleSubmit = (e) => {
     if(e.keyCode === 13){
       this.props.add(ReactDOM.findDOMNode(this.refs.newItem).value);
       ReactDOM.findDOMNode(this.refs.newItem).value = '';
     }
   }
+  
   render(){
     return (
       <div className="col-sm-12 text-center">
@@ -16,7 +18,7 @@ class AddItem extends React.Component{
           ref="newItem"
           className="form-control"
           placeholder="New Item"
-          onKeyDown={this.handleSubmit.bind(this)} />
+          onKeyDown={this.handleSubmit} />
       </div>
 
     )
