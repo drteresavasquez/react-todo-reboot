@@ -6,12 +6,13 @@ import base from './base';
 class App extends Component {
   state = {
       list: [],
-      loading: true
+      loading: true,
+      listName: "to-do-react"
     };
 
-
   componentDidMount() {
-    this.ref = base.syncState('to-do-react', {
+    let whichList = this.state.listName
+    this.ref = base.syncState( whichList, {
       context: this,
       state: 'list',
       asArray: true,
@@ -21,18 +22,12 @@ class App extends Component {
     });
   }
 
-  // componentWillUpdate(nextProps, nextState){
-  //   //automatically passes in nextprops and nextState
-  //   console.log("something changed");
-  //   console.log("nextProps:", nextProps, "nextState", nextState);
-  //   //example use: set props in local storage
-  // }
-
   handleAddItem = (newItem) => {
     this.setState({
       list: this.state.list.concat([newItem])
     });
   }
+  
   handleRemoveItem = (index) => {
     //the react way: Make a copy of state, modify, and then set new state
     var newList = this.state.list;
